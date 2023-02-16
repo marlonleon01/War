@@ -20,7 +20,7 @@ function handleClick() {
             drawCardsBtn.removeAttribute("disabled")
             
             computerScore.innerHTML = `Computer Score: ${num1}`
-            yourScore.innerHTML = `Your Score: ${num2}`
+            yourScore.innerHTML = `My Score: ${num2}`
         })
 }
 
@@ -71,7 +71,7 @@ function determineCardWinner(card1, card2) {
         winnerText.innerHTML = "You win!"
 
         num2 = num2 + 1
-        yourScore.innerHTML = `Your Score: ${num2}` 
+        yourScore.innerHTML = `My Score: ${num2}` 
     }
 }
 
