@@ -40,6 +40,9 @@ function drawCards() {
                         `
             remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
 
+            cardsContainer.children[0].style.border = "none"
+            cardsContainer.children[1].style.border = "none"
+
             if (data.remaining === 0) {
                 drawCardsBtn.disabled = "true"
             }
