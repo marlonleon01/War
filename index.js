@@ -21,7 +21,6 @@ function drawCards() {
     fetch(`${baseUrl}${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             determineCardWinner(data.cards[0].value, data.cards[1].value)
             cardsContainer.children[0].innerHTML = `
                             <img src="${data.cards[0].image}" class="card"></img>
@@ -30,6 +29,10 @@ function drawCards() {
                             <img src="${data.cards[1].image}" class="card"></img>
                         `
             remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
+
+            if (data.remaining === 0) {
+                drawCardsBtn.disabled = "true"
+            }
         })
 }
 
