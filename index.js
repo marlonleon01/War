@@ -2,6 +2,7 @@ const baseUrl = "https://apis.scrimba.com/deckofcards/api/deck/"
 const cardsContainer = document.getElementById("cards-img-container")
 const newDeckBtn = document.getElementById("new-deck")
 const drawCardsBtn = document.getElementById("draw-cards")
+const winnerTitle = document.getElementById("winner-title")
 let deckId
 
 function handleClick() {
@@ -39,13 +40,11 @@ function determineCardWinner(card1, card2) {
     const card2ValueIndex = valueOptions.indexOf(card2)
 
     if (card1ValueIndex > card2ValueIndex) {
-        console.log("Card1 won")
+        winnerTitle.innerHTML = "Computer wins!"
     } if (card1ValueIndex === card2ValueIndex) {
-        console.log("It's a tie")
+        winnerTitle.innerHTML = "War!"
     } if (card1ValueIndex < card2ValueIndex) {
-        console.log("Card2 won")
+        winnerTitle.innerHTML = "You win!"
     }
-    console.log(card1ValueIndex)
-    console.log(card2ValueIndex)
 }
 
