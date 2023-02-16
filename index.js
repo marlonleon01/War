@@ -14,13 +14,13 @@ function handleClick() {
     fetch(`${baseUrl}new/shuffle/`)
         .then(res => res.json())
         .then(data => {
-            remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
+            remainingCardsText.textContent = `Remaining Cards: ${data.remaining}`
             deckId = data.deck_id
             
             drawCardsBtn.removeAttribute("disabled")
             
-            computerScoreEl.innerHTML = `Computer Score: ${computerScore}`
-            myScoreEl.innerHTML = `My Score: ${myScore}`
+            computerScoreEl.textContent = `Computer Score: ${computerScore}`
+            myScoreEl.textContent = `My Score: ${myScore}`
         })
 }
 
@@ -38,19 +38,20 @@ function drawCards() {
             cardsContainer.children[1].innerHTML = `
                             <img src="${data.cards[1].image}" class="card"></img>
                         `
-            remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
+            remainingCardsText.textContent = `Remaining Cards: ${data.remaining}`
 
             cardsContainer.children[0].style.border = "none"
             cardsContainer.children[1].style.border = "none"
 
             if (data.remaining === 0) {
                 drawCardsBtn.disabled = "true"
-            }
-
-            if (data.remaining === 0 && computerScore > myScore) {
-                winnerText.innerHTML = "Computer wins, try again!"
-            } else if (data.remaining === 0 && computerScore < myScore) {
-                winnerText.innerHTML = "Congrats, You Win!"
+                if (computerScore > myScore) {
+                    winnerText.textContent = "Computer wins, try again!"
+                } else if (computerScore < myScore) {
+                    winnerText.textContent = "Congrats, You Win!"
+                } else {
+                    winnerText.textContent = "Its a tie!"
+                }
             }
         })
 }
@@ -66,21 +67,21 @@ function determineCardWinner(card1, card2) {
     const card2ValueIndex = valueOptions.indexOf(card2)
 
     if (card1ValueIndex > card2ValueIndex) {
-        winnerText.innerHTML = "Computer wins!"
+        winnerText.textContent = "Computer wins!"
         
-        computerScore = computerScore + 1
-        computerScoreEl.innerHTML = `Computer Score: ${computerScore}`
+        computerScore++
+        computerScoreEl.textContent = `Computer Score: ${computerScore}`
     } 
     
     if (card1ValueIndex === card2ValueIndex) {
-        winnerText.innerHTML = "War!"
+        winnerText.textContent = "War!"
     } 
     
     if (card1ValueIndex < card2ValueIndex) {
-        winnerText.innerHTML = "You win!"
+        winnerText.textContent = "You win!"
 
-        myScore = myScore + 1
-        myScoreEl.innerHTML = `My Score: ${myScore}` 
+        myScore++
+        myScoreEl.textContent = `My Score: ${myScore}` 
     }
 }
 
