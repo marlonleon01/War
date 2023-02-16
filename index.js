@@ -46,6 +46,12 @@ function drawCards() {
             if (data.remaining === 0) {
                 drawCardsBtn.disabled = "true"
             }
+
+            if (data.remaining === 0 && computerScore > myScore) {
+                winnerText.innerHTML = "Computer wins, try again!"
+            } else if (data.remaining === 0 && computerScore < myScore) {
+                winnerText.innerHTML = "Congrats, You Win!"
+            }
         })
 }
 
