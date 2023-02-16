@@ -24,13 +24,11 @@ body {
     font-family: 'Exo 2', sans-serif;
 }
 
-.draw-cards-btn {
-    height: 4rem;
-    font-size: 2rem;
-    background-color: rgb(255, 241, 0);
-    cursor: pointer;
-    border: none;
-    align-self: stretch;
+.new-deck-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
 }
 
 .new-deck-btn {
@@ -40,7 +38,20 @@ body {
     background-color: rgb(255, 241, 0);
     cursor: pointer;
     border: none;
-    align-self: flex-start;
+}
+
+.cards-remaining {
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.winner-text {
+    color: #FFF;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
 }
 
 .cards-img-container {
@@ -57,9 +68,12 @@ body {
     margin: 2rem 0 5rem 0;
 }
 
-.winner-title {
-    color: #FFF;
-    font-size: 3rem;
-    font-weight: 400;
-    margin: 0;
+.draw-cards-btn {
+    height: 4rem;
+    font-size: 2rem;
+    background-color: rgb(255, 241, 0);
+    cursor: pointer;
+    border: none;
+    align-self: stretch;
 }
+
