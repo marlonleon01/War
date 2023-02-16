@@ -43,3 +43,14 @@ body {
 .cards-img-container {
     align-self: center;
 }
+
+.card-slot1, .card-slot2 {
+    height: 20rem;
+    width: calc(20rem * 5 / 7);
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.card-slot1 {
+    margin-bottom: 8rem;
+}
