@@ -4,6 +4,10 @@ const newDeckBtn = document.getElementById("new-deck")
 const drawCardsBtn = document.getElementById("draw-cards")
 const winnerText = document.getElementById("winner-text")
 const remainingCardsText = document.getElementById("cards-remaining")
+const computerScore = document.getElementById("computer-score")
+const yourScore = document.getElementById("your-score")
+let num1 = 0
+let num2 = 0
 let deckId
 
 function handleClick() {
@@ -12,7 +16,11 @@ function handleClick() {
         .then(data => {
             remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
             deckId = data.deck_id
+            
             drawCardsBtn.removeAttribute("disabled")
+            
+            computerScore.innerHTML = `Computer Score: ${num1}`
+            yourScore.innerHTML = `Your Score: ${num2}`
         })
 }
 
@@ -23,6 +31,7 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             determineCardWinner(data.cards[0].value, data.cards[1].value)
+            
             cardsContainer.children[0].innerHTML = `
                             <img src="${data.cards[0].image}" class="card"></img>
                         `
@@ -49,10 +58,20 @@ function determineCardWinner(card1, card2) {
 
     if (card1ValueIndex > card2ValueIndex) {
         winnerText.innerHTML = "Computer wins!"
-    } if (card1ValueIndex === card2ValueIndex) {
+        
+        num1 = num1 + 1
+        computerScore.innerHTML = `Computer Score: ${num1}`
+    } 
+    
+    if (card1ValueIndex === card2ValueIndex) {
         winnerText.innerHTML = "War!"
-    } if (card1ValueIndex < card2ValueIndex) {
+    } 
+    
+    if (card1ValueIndex < card2ValueIndex) {
         winnerText.innerHTML = "You win!"
+
+        num2 = num2 + 1
+        yourScore.innerHTML = `Your Score: ${num2}` 
     }
 }
 
