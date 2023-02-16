@@ -4,10 +4,10 @@ const newDeckBtn = document.getElementById("new-deck")
 const drawCardsBtn = document.getElementById("draw-cards")
 const winnerText = document.getElementById("winner-text")
 const remainingCardsText = document.getElementById("cards-remaining")
-const computerScore = document.getElementById("computer-score")
-const yourScore = document.getElementById("your-score")
-let num1 = 0
-let num2 = 0
+const computerScoreEl = document.getElementById("computer-score")
+const myScoreEl = document.getElementById("your-score")
+let computerScore = 0
+let myScore = 0
 let deckId
 
 function handleClick() {
@@ -19,8 +19,8 @@ function handleClick() {
             
             drawCardsBtn.removeAttribute("disabled")
             
-            computerScore.innerHTML = `Computer Score: ${num1}`
-            yourScore.innerHTML = `My Score: ${num2}`
+            computerScoreEl.innerHTML = `Computer Score: ${computerScore}`
+            myScoreEl.innerHTML = `My Score: ${myScore}`
         })
 }
 
@@ -59,8 +59,8 @@ function determineCardWinner(card1, card2) {
     if (card1ValueIndex > card2ValueIndex) {
         winnerText.innerHTML = "Computer wins!"
         
-        num1 = num1 + 1
-        computerScore.innerHTML = `Computer Score: ${num1}`
+        computerScore = computerScore + 1
+        computerScoreEl.innerHTML = `Computer Score: ${computerScore}`
     } 
     
     if (card1ValueIndex === card2ValueIndex) {
@@ -70,8 +70,8 @@ function determineCardWinner(card1, card2) {
     if (card1ValueIndex < card2ValueIndex) {
         winnerText.innerHTML = "You win!"
 
-        num2 = num2 + 1
-        yourScore.innerHTML = `My Score: ${num2}` 
+        myScore = myScore + 1
+        myScoreEl.innerHTML = `My Score: ${myScore}` 
     }
 }
 
