@@ -17,10 +17,13 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            const cardSlot1 = document.getElementById("card-slot1")
-            const cardSlot2 = document.getElementById("card-slot2")
-            cardSlot1.innerHTML = `<img src="${data.cards[0].image}"></img>`
-            cardSlot2.innerHTML = `<img src="${data.cards[1].image}"></img>`
+            const cardsContainer = document.getElementById("cards-img-container")
+            cardsContainer.children[0].innerHTML = `
+                            <img src="${data.cards[0].image}" class="card"></img>
+                        `
+            cardsContainer.children[1].innerHTML = `
+                            <img src="${data.cards[1].image}" class="card"></img>
+                        `
         })
 }
 
