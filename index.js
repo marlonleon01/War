@@ -18,6 +18,7 @@ function drawCards() {
     fetch(`${baseUrl}${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
+            determineCardWinner(data.cards[0].value, data.cards[1].value)
             cardsContainer.children[0].innerHTML = `
                             <img src="${data.cards[0].image}" class="card"></img>
                         `
@@ -29,4 +30,22 @@ function drawCards() {
 
 drawCardsBtn.addEventListener("click", drawCards)
 
+
+function determineCardWinner(card1, card2) {
+    const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+
+    const card1ValueIndex = valueOptions.indexOf(card1)
+    const card2ValueIndex = valueOptions.indexOf(card2)
+
+    if (card1ValueIndex > card2ValueIndex) {
+        console.log("Card1 won")
+    } if (card1ValueIndex === card2ValueIndex) {
+        console.log("It's a tie")
+    } if (card1ValueIndex < card2ValueIndex) {
+        console.log("Card2 won")
+    }
+    console.log(card1ValueIndex)
+    console.log(card2ValueIndex)
+}
 
