@@ -68,6 +68,12 @@ body {
     margin: 2rem 0 5rem 0;
 }
 
+.scores {
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
 .draw-cards-btn {
     height: 4rem;
     font-size: 2rem;
