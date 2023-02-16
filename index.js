@@ -12,6 +12,7 @@ function handleClick() {
         .then(data => {
             remainingCardsText.innerHTML = `Remaining Cards: ${data.remaining}`
             deckId = data.deck_id
+            drawCardsBtn.removeAttribute("disabled")
         })
 }
 
