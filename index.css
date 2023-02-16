@@ -13,4 +13,34 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background: url(./images/table.png)no-repeat center center fixed;
+    background-size: cover;
+}
+
+.draw-cards-btn {
+    height: 4rem;
+    width: 100%;
+    font-size: 2rem;
+    background-color: rgb(255, 241, 0);
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    border: none;
+}
+
+.new-deck-btn {
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    background-color: rgb(255, 241, 0);
+    cursor: pointer;
+    margin: 0.5rem;
+    border: none;
+}
+
+.cards-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
 }
