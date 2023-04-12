@@ -1,9 +1,9 @@
 # War
 
 ## Description
--I created this to learn how to use callback functions for different methods and promise chaining
--It was a part of the Working with APIs scrimba course
--It calls to an API which returns the cards at random
+-I created this to learn how to use callback functions for different methods and promise chaining    
+-It was a part of the Working with APIs scrimba course   
+-It calls to an API which returns the cards at random   
 
 ## Required
 -Code editor (Visual Studio Code recommended)  
